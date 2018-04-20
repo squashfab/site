@@ -1,0 +1,311 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head id="phead">
+    <title></title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.min.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/tripledes.min.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/mode-ecb.min.js" type="text/javascript"></script>
+    <link href="embed-bee-v2.css" rel="stylesheet" id="page_css" type="text/css" />
+    
+    <script type="text/javascript" >
+        if (!String.prototype.startsWith) {
+            String.prototype.startsWith = function (searchString, position) {
+                return this.substr(position || 0, searchString.length) === searchString;
+            };
+        }      
+        String.prototype.format = function () {
+            var formatted = this;
+            for (var i = 0; i < arguments.length; i++) {
+                var regexp = new RegExp('\\{' + i + '\\}', 'gi');
+                formatted = formatted.replace(regexp, arguments[i]);
+            }
+            return formatted;
+        };
+        var is_ie_8 = false;
+        var parseQueryString = function (url) {
+            var urlParams = {};
+            url.replace(
+            new RegExp("([^?=&]+)(=([^&]*))?", "g"),
+                function ($0, $1, $2, $3) {
+                    urlParams[$1] = $3;
+                }
+            );
+
+            return urlParams;
+        }
+        var urlToParse = location.search;
+        var urlParams = parseQueryString(urlToParse);
+    </script>
+    <script type="text/javascript" src="bee-gallery-v4.js"></script>
+    <script type="text/javascript">
+        var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+        var feed = null;
+        var has_pin = false;
+        var border_color = "#E6E6E6";
+        var heart_color = "#e72476";
+        var like_text_color = "#3f3f3f";
+        var like_panel_color = "#ffffff";
+        var frame_color = "#ffffff";
+        var rows = 0;
+        var cols = 0;
+        var size = "150";
+        var sizeInt = 150;
+        var space = 10;
+        var border = 10;
+        var radius = "0px";
+        var bg_color = "transparent";
+        var user_id = urlParams["user_id"]
+        if (urlParams["hc"] != undefined)
+        {
+            heart_color = "#" + urlParams["hc"];
+        }
+        var hearturl = createHeart(heart_color);
+        if (urlParams["ltc"] != undefined)
+        {
+            like_text_color = "#" + urlParams["ltc"];
+        }
+        if (urlParams["lpc"] != undefined)
+        {
+            like_panel_color = "#" + urlParams["lpc"];
+        }
+        if (urlParams["fc"] != undefined)
+        {
+            frame_color = "#" + urlParams["fc"];
+        }
+        if (urlParams["pin"] != undefined && urlParams["pin"] == "true")
+        {
+            has_pin = true;
+            document.getElementsByTagName("head")[0].setAttribute("has_pin", "true");
+        }
+        if (urlParams["border"] != undefined && !isNaN(parseInt(urlParams["border"])))
+        {
+            border = parseInt(urlParams["border"]);
+        }
+        if (border > 10)
+        {
+            border = 10;
+        }
+        if (urlParams["round"] == "true")
+        {
+            radius = "6px";
+        }
+        if (!isNaN(parseInt(urlParams["space"])))
+        {
+            space = parseInt(urlParams["space"]);
+        }
+        if (!isNaN(parseInt(urlParams["rows"])))
+        {
+            rows = parseInt(urlParams["rows"]);
+        }
+        if (!isNaN(parseInt(urlParams["cols"])))
+        {
+            cols = parseInt(urlParams["cols"]);
+        }
+        if(rows > 10)
+        {
+            rows = 10;
+        }
+        if(cols > 10)
+        {
+            cols = 10;
+        }
+        if (urlParams["bg"] != undefined)
+        {
+            if (urlParams["bg"] == "transparent")
+            {
+                bg_color = "transparent";
+            }
+            else
+            {
+                bg_color = "#" + urlParams["bg"];
+            }
+        }
+        if (urlParams["sl"] != undefined && urlParams["sl"] == "true")
+        {
+            showLikes = true;
+        }
+        if (urlParams["brd"] != undefined && urlParams["brd"] == "false")
+        {
+            border_color = "transparent";
+        }
+        var size_prop = "low_resolution";
+        switch (urlParams["size"])
+        {
+            case "small":
+                size = "100";
+                sizeInt = 100;
+                size_prop = "thumbnail";
+                break;
+            case "medium":
+                size = "150";
+                sizeInt = 150;
+                size_prop = "thumbnail";
+                break;
+            case "large":
+                size = "200";
+                sizeInt = 200;
+                size_prop = "low_resolution";
+                break;
+            case "extra":
+                size = "300";
+                sizeInt = 300;
+                size_prop = "low_resolution";
+                break;
+            case "xxl":
+                size = "600";
+                sizeInt = 600;
+                size_prop = "standard_resolution";
+                break;
+            default:
+                size = "150";
+                sizeInt = 150;
+                size_prop = "thumbnail";
+                break;
+        }
+        if (isMobile)
+        {
+            size_prop = "thumbnail";
+        }
+        var w = (sizeInt + (space * 2)) * cols;
+        var h = (sizeInt + (space * 2)) * rows;
+       
+        document.write("<style id=\"gallery_css\" type=\"text/css\">" + "#gallery_div{width:{0}px;height:{1}px;padding:{2}px;background-color:{3}}".format(w, h, space, bg_color) + "\r\n" + 
+        '.pin{margin:{0}px;} \
+        .gallery td .photo a img{border-color:{1}; padding:{0}px; border-radius:{2};background-color:{6};} \
+        .gallery td .photo a img:hover{{3}} \
+        .photo div{background-color:{5};border-width:{0}px;} \
+        .photo div span{color:{4};}' 
+        .format(
+                border,
+                border_color,
+                radius,
+                space >= 0 ? "box-shadow: 1px 1px 8px -2px rgba(0, 0, 0, 0.75);" : "",
+                like_text_color,
+                like_panel_color,
+                frame_color
+                ) + "</style>");
+        document.write('<style id="gallery_css2" type="text/css">.photo div span{background-image:url("' + hearturl + '");}</style>');
+        function dataArrived(js){
+            feed = js;
+            var sitesCounter = 0;
+            
+            for (var r = 0; r < rows; r++)
+            {
+                var posr = "";
+                if (r == 0)
+                {
+                    posr = "t";
+                }
+                else if (r == (rows - 1))
+                {
+                    posr = "b";
+                }
+                else
+                {
+                    posr = "m";
+                }
+                var row = gallery.insertRow();
+                var row_html = "";
+               
+                for (var c = 0; c < cols; c++) {
+                    
+                    var href = js["data"][sitesCounter]["link"];
+                    var src = "";
+                    var alt = "";
+                    var posc = "";
+                    var d = "";
+                    src = js["data"][sitesCounter]["images"][size_prop]["url"].replace("http:", "");
+                    if (js["data"][sitesCounter]["caption"] != null)
+                    {
+                        alt = "Photo by @" + js["data"][sitesCounter]["user"]["username"] + " - " + js["data"][sitesCounter]["caption"]["text"];
+                        if (has_pin)
+                        {
+                            d = "Photo by @" + js["data"][sitesCounter]["user"]["username"] + " | " + js["data"][sitesCounter]["caption"]["text"] + " |";
+                        }
+                    }
+                    else if(has_pin)
+                    {
+                        d = "Photo by @" + js["data"][sitesCounter]["user"]["username"];
+                    }
+                    
+                    if (c == 0)
+                    {
+                        posc = "l";
+                    }
+                    else if (c == (cols - 1))
+                    {
+                        posc = "r";
+                    }
+                    else
+                    {
+                        posc = "m";
+                    }
+                    if (showLikes)
+                    {
+                        row_html += '<td valign="middle" align="center" class="photo{0}" pos="{4}" >\
+                            <div class="photo" >\
+                                <a d="{6}" m="{2}" href="{1}" title="" target="_blank" >\
+                                    <img src="{2}" alt="{3}" onError="showImage(this);"  onload="showImage(this);" >\
+                                    <div><span>{5}</span></div>\
+                                </a>\
+                            </div>\
+                        </td>'.format( size, href, src, alt, posr + posc, js["data"][sitesCounter]["likes"]["count"].toString(), d);
+                    }
+                    else {
+                         row_html +=  '<td valign="middle" align="center" class="photo{0}" pos="{4}" >\
+                            <div class="photo" >\
+                                <a d="{5}" m="{2}" href="{1}" title="" target="_blank" >\
+                                    <img src="{2}" alt="{3}" onError="showImage(this);"  onload="showImage(this);" >\
+                                </a>\
+                            </div>\
+                        </td>'.format(size, href, src, alt, posr + posc, d);
+                     }
+                    sitesCounter++;
+                    if (sitesCounter >= js["data"].Count)
+                    {
+                        sitesCounter = 0;
+                    }
+                }
+                row.innerHTML = row_html;
+                init();
+            }
+
+        }
+        
+    </script>
+</head>
+<body>
+    <div id="gallery_div" >
+        <table cellpadding="0" cellspacing="0" class="gallery" id="gallery" >
+          <tbody id="server_collage_cont"></tbody>
+        </table>
+    </div>
+    <script type="text/javascript">
+        var t = null;
+        
+        if (urlParams.t != undefined) {
+            t = urlParams.t;
+            if (t.startsWith("999999")) {
+                t = t.substr(6);
+                t = t.replace(/' '/g, "+").replace(/-/g, "+").replace(/_/g, "/").replace(/=/g, "");
+                var l = t.length + (4 - t.length % 4) % 4;
+                if (l > t.length) {
+                    for (var i = 0; i < l - t.length; i++) {
+                        t += "=";
+                    }
+                }
+                var keyHex = CryptoJS.enc.Utf8.parse("phbc62t2");
+                var ivHex = CryptoJS.enc.Hex.parse(CryptoJS.enc.Utf8.parse("qd4gxsdf").toString(CryptoJS.enc.Hex));
+                var decrypted = CryptoJS.DES.decrypt(t, keyHex, { iv: ivHex, mode: CryptoJS.mode.CBC });
+                t = decrypted.toString(CryptoJS.enc.Utf8);
+                console.log(t);
+            }
+        }
+         var feedscript = document.createElement('script'); 
+         feedscript.type = 'text/javascript';
+         feedscript.src = "https://api.instagram.com/v1/users/" + user_id + "/media/recent/?access_token=" + t + "&count=60&callback=dataArrived";
+         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(feedscript, s);
+    </script>
+</body>
+</html>

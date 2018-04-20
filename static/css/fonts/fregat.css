@@ -1,0 +1,49 @@
+
+@font-face {
+    font-family: 'fregatregular';
+    src: url('fregat.eot');
+    src: url('fregat.eot?#iefix') format('embedded-opentype'),
+         url('fregat.woff') format('woff'),
+         url('fregat.ttf.gz') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'fregatbold';
+    src: url('fregat_bold.eot');
+    src: url('fregat_bold.eot?#iefix') format('embedded-opentype'),
+         url('fregat_bold.woff') format('woff'),
+         url('fregat_bold.ttf.gz') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'fregatbold_italic';
+    src: url('fregat_bold_italic.eot');
+    src: url('fregat_bold_italic.eot?#iefix') format('embedded-opentype'),
+         url('fregat_bold_italic.woff') format('woff'),
+         url('fregat_bold_italic.ttf.gz') format('truetype');
+    font-weight: bold;
+}
+
+
+
+
+@font-face {
+    font-family: 'fregatitalic';
+    src: url('fregat_italic.eot');
+    src: url('fregat_italic.eot?#iefix') format('embedded-opentype'),
+         url('fregat_italic.woff') format('woff'),
+         url('fregat_italic.ttf.gz') format('truetype');
+    font-weight: normal;
+}

@@ -1,0 +1,25 @@
+
+@font-face {
+    font-family: 'museoregular';
+    src: url('museo.eot');
+    src: url('museo.eot?#iefix') format('embedded-opentype'),
+         url('museo.woff') format('woff'),
+         url('museo.ttf.gz') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'museobold';
+    src: url('museo_bold.eot');
+    src: url('museo_bold.eot?#iefix') format('embedded-opentype'),
+         url('museo_bold.woff') format('woff'),
+         url('museo_bold.ttf.gz') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+
+}

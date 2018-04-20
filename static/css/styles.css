@@ -1,0 +1,589 @@
+body {
+  background: #fff;
+  font-family: 'museoregular', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #333;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.gmap {
+  height: 140px;
+  width: 305px;
+}
+
+.gmap img {
+  max-width: none !important;
+  background:none!important;
+}
+
+.footer {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  height: 40px;
+  left: 0px;
+  background-color: #F8F1D9;
+  text-align: center;
+}
+.footer .container {
+  background-color: #F8F1D9;
+}
+.footer p {
+  padding-top: 10px;
+  padding-left: 15px;
+}
+
+.footer .sq-links {
+    float: none;
+    margin: 0;
+    padding: 0;
+}
+.footer .sq-links li {
+    list-style: none;
+    float: none;
+}
+.sq-navbar.no-btn .sq-book {
+  display: none;
+}
+
+.sq-nowrap {
+  white-space: nowrap;
+}
+
+.sq-header {
+  background: #33353a;
+}
+
+.sq-logo {
+  margin-top: 15px;
+  margin-bottom: 23px;
+  text-align: center;
+}
+
+.sq-logo img {
+  width: auto;
+  height: auto;
+}
+
+.sq-rules:before {
+  content: 'Правила';
+}
+
+.sq-facebook:before {
+  content: 'fb';
+  font-style:
+}
+
+.sq-heading {
+  font-family: 'museobold';
+  white-space: nowrap;
+  overflow: hidden;
+  font-size: 26px;
+  letter-spacing: 3px;
+}
+
+.sq-subheading {
+  font-family: 'museoregular';
+  color: #cd4923;
+  font-size: 10px;
+  letter-spacing: 4px;
+  margin-top: 5px;
+  margin-bottom: 25px;
+}
+
+.sq-strong {
+  font-family: 'museobold';
+}
+
+.sq-underline {
+  text-decoration: underline;
+}
+
+.sq-info .sq-title {
+  font-size: 16px;
+  font-family: "museobold";
+  margin-bottom: 0px;
+}
+
+.sq-title {
+  margin-top: 0px;
+  margin-bottom: 12px;
+  font-family: 'museoregular';
+  font-size: 18px;
+}
+
+.sq-text {
+  margin-bottom: 6px;
+}
+
+.sq-text p {
+  margin-bottom: 10px;
+}
+
+.sq-link, .sq-link:visited {
+  text-decoration: underline;
+  color: #333;
+}
+.sq-book .sq-link {
+  color: #F8F1D9;
+  text-decoration: none;
+}
+.sq-text span {
+  margin-bottom: 0px;
+}
+
+.sq-text p:last-child {
+  margin-bottom: 0px;
+}
+
+.sq-section {
+  margin-bottom: 38px;
+}
+
+.sq-section:first-child {
+  margin-top: 30px;
+}
+
+.sq-content {
+  padding-left: 12px;
+}
+
+.sq-navbar {
+  background-color: #F8F1D9;
+}
+
+.sq-map {
+  padding-top: 0px;
+}
+
+.sq-trainer {
+  margin-bottom: 30px;
+}
+
+.sq-trainer img {
+  max-width:130px;
+  height:auto;
+}
+
+.sq-trainer .media-body {
+  min-width: 200px;
+}
+
+.sq-trainer .media-body * {
+  display: block;
+  margin: 0px;
+}
+
+.sq-trainer .sq-title {
+  font-family: "museobold";
+  font-size: 18px;
+  margin-top: 10px;
+  margin-bottom: 2px !important;
+}
+
+.sq-trainer .sq-text {
+  font-family: "museoregular";
+  font-size: 16px;
+}
+
+.sq-navbar .container {
+  white-space: normal;
+  overflow: hidden;
+}
+
+.sq-book {
+  display: block;
+  clear: both;
+  text-align: center;
+}
+
+.sq-book > a {
+  background-color: #ffa400;
+  display: block;
+  line-height: 20px;
+  font-size: 16px;
+  font-family: 'museobold';
+  letter-spacing: 0px;
+  padding: 10px 15px;
+}
+
+.sq-book > a, .sq-book > a:hover, .sq-book > a:focus {
+  color: #F8F1D9;
+  text-decoration: none;
+}
+
+.row .sq-book {
+  margin-top: 10px;
+}
+
+.sq-navbar .navbar {
+  white-space: nowrap;
+  overflow: hidden;
+  background-color: #F8F1D9;
+  display: inline-block;
+  border-radius: 0px;
+  border: none;
+  padding: 0px;
+  margin: 0px;
+  float: left;
+  min-height: 40px;
+}
+
+.sq-navbar .navbar-nav, .sq-navbar .navbar {
+  margin: 0px;
+  padding: 0px;
+}
+
+.sq-navbar .navbar-nav > li {
+  padding: 10px 11px 0px;
+}
+
+.sq-navbar .navbar-nav > li > a {
+  white-space: nowrap;
+  overflow: hidden;
+  border-radius: 0px;
+  padding: 0px;
+  line-height: 20px;
+  color: #33353a;
+  font-family: 'museoregular';
+  font-size: 16px;
+  background-color: transparent;
+  padding-bottom: 7px;
+}
+
+.sq-navbar .navbar-nav > .active > a,
+.sq-navbar .navbar-nav > .active > a:hover,
+.sq-navbar .navbar-nav > .active > a:focus {
+  background-color: #F8F1D9;
+  border-bottom: #EB7D5D 3px solid;
+}
+
+.sq-navbar .navbar-nav > li:first-child {
+  margin-left: -11px !important;
+}
+
+.sq-navbar .navbar-nav.navbar-right:last-child {
+  margin-right: -15px !important;
+}
+
+.sq-navbar .navbar-right {
+  float: right!important;
+}
+
+.sq-navbar .navbar-nav, .sq-navbar .navbar {
+    display: table;
+    width: 100%;
+}
+.sq-navbar .navbar-nav > li {
+    display: table-cell;
+    text-align: center;
+}
+
+.sq-info.sq-vertical span {
+    display: block;
+    margin-bottom: 4px;
+}
+
+.sq-img-col {
+    width: 320px;
+}
+.footer .sq-links li {
+    list-style: none;
+    float: left;
+    margin-left: 1em;
+}
+.wide-only {
+    display: none;
+}
+.sq-club-map {
+    margin-bottom: 10px;
+}
+
+.sq-club-map img {
+  width: 100%;
+}
+
+.sq-club-map:not(:first-of-type) {
+    margin-top: 10px;
+}
+
+.modal-header {
+  border-bottom: 0px;
+}
+
+.container {
+  min-width: 320px !important;
+}
+
+.sq-navbar, .sq-book {
+  margin-left: -15px;
+  margin-right: -15px;
+}
+
+.sq-section .media {
+  margin-bottom: 25px;
+}
+
+.hidden {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+.sq-partner img {
+  width:330px;
+  height:auto;
+}
+
+.sq-club {
+  margin-top: 25px;
+}
+
+@media screen and (min-width: 640px) {
+  .sq-club {
+    margin-top: 0px;
+  }
+
+  .wide-only {
+    display: inherit;
+  }
+  .wide-hide {
+    display: none;
+  }
+    .sq-img-col {
+    width: 900px;
+  }
+
+  .container {
+    max-width: 1170px !important;
+    padding-right: 15px;
+    padding-left: 15px
+  }
+
+  .sq-logo {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    float: left;
+    width: 234px;
+  }
+
+  .sq-navbar {
+    float: left;
+    width: 49%;
+    background-color: #33353a;
+    margin-top: 55px;
+  }
+
+  .sq-navbar .sq-center {
+    margin: 0 auto;
+    width: 291px;
+  }
+
+  .sq-navbar .navbar {
+    background-color: #33353a;
+  }
+
+  .sq-navbar .navbar-nav > li > a,
+  .sq-navbar .navbar-nav > li > a:hover {
+    color: #F8F1D9;
+    font-size: 20px;
+    background-color: transparent;
+  }
+
+  .sq-logo img {
+    width: auto;
+    height: auto;
+  }
+
+  .sq-heading {
+    font-size: 32px;
+  }
+
+  .sq-subheading {
+    font-size: 16px;
+    margin-bottom: 30px;
+  }
+
+  .sq-rules:before {
+    content: 'Правила Клуба';
+  }
+
+  .sq-facebook:before {
+    content: 'Facebook';
+  }
+
+  .sq-title {
+    margin-bottom: 22px;
+  }
+
+  .sq-section {
+    margin-bottom: 46px;
+  }
+
+  .sq-section:first-child {
+    margin-top: 46px;
+  }
+
+  .sq-content {
+    padding-left: 15px;
+  }
+
+  .sq-trainer img {
+    max-width:220px;
+  }
+
+  .sq-trainer .sq-title {
+    margin-bottom: 0px;
+    font-size: 22px;
+  }
+
+  .sq-navbar .container {
+    white-space: nowrap;
+  }
+
+  .sq-book {
+    float: left;
+    clear: none;
+    width: 234px;
+    margin-top: 55px;
+  }
+
+  .row .sq-book {
+    margin-top: 10px;
+    margin-left: 0px;
+  }
+
+  .sq-book > a {
+    letter-spacing: 1px;
+    padding: 10px 30px;
+    border-radius: 3px;
+  }
+
+  .sq-navbar .navbar-nav, .sq-navbar .navbar {
+    display: block;
+    width: auto;
+  }
+
+  .sq-navbar .navbar-nav > li {
+    padding: 10px 15px 0px;
+    display: block;
+  }
+
+  .sq-navbar.no-btn .navbar {
+    width:100%;
+    display:-moz-box;
+    -moz-box-pack:center;
+    -moz-box-align:center;
+    display:-webkit-box;
+    -webkit-box-pack:center;
+    -webkit-box-align:center;
+    display:box;
+    box-pack:center;
+    box-align:center;
+  }
+
+  .sq-navbar .navbar-nav > li, .navbar-nav {
+    float: left !important;
+  }
+
+  .sq-info .sq-title {
+    font-size: 22px;
+    font-family: "museobold";
+    margin-bottom: 0px;
+  }
+
+  .sq-title {
+    font-size: 22px;
+  }
+
+  .footer {
+    position: relative;
+    bottom: -60px;
+  }
+
+  body {
+    margin-bottom: 60px;
+  }
+
+  .footer,
+  .footer .container {
+    color: #F8F1D9;
+    background-color: #33353a
+  }
+
+  .footer p {
+    padding-left: 0px;
+  }
+
+  .footer .sq-copyright {
+    float: left;
+    margin: 10px 0 8px;
+  }
+  .footer .sq-links {
+    float: right;
+    margin: 10px 0 8px;
+  }
+  .footer .sq-links li {
+    list-style: none;
+    float: left;
+    margin-left: 1em;
+  }
+  .sq-navbar,
+  .sq-book {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+}
+
+@media screen and (min-width: 640px) {
+  .sq-book {
+    width: 100%;
+    margin-top: 20px;
+  }
+  .sq-club .sq-book {
+    width: 234px;
+    margin-top: 20px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .sq-partner img {
+    width:220px;
+    height:auto;
+  }
+  .sq-club-map img {
+    width: 315px;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .sq-book {
+    width: 234px;
+    margin-top: 55px;
+  }
+  .sq-club .sq-book {
+    width: 100%;
+  }
+  .sq-partner img {
+    width:300px;
+    height:auto;
+  }
+  .sq-club-map img {
+    width: 420px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .sq-partner img {
+    width:330px;
+    height:auto;
+  }
+  .sq-club-map img {
+    width: 100%;
+  }
+
+  .sq-navbar {
+    width: 58%;
+  }
+}
