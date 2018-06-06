@@ -77,7 +77,6 @@ body {
 
 .sq-heading {
   font-family: 'museobold';
-  white-space: nowrap;
   overflow: hidden;
   font-size: 26px;
   letter-spacing: 3px;
@@ -337,6 +336,19 @@ body {
 
 .sq-club {
   margin-top: 25px;
+}
+
+.sq-lang {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 8px;
+  font-size: 32px;
+}
+
+.sq-lang a,
+.sq-lang a:focus {
+  color: #F8F1D9;
 }
 
 @media screen and (min-width: 640px) {
