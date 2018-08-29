@@ -128,6 +128,7 @@ body {
   color: #F8F1D9;
   text-decoration: none;
 }
+
 .sq-text span {
   margin-bottom: 0px;
 }
@@ -291,7 +292,16 @@ body {
     list-style: none;
     float: left;
     margin-left: 1em;
+
 }
+.footer .sq-link {
+    color: #333;
+}
+
+.footer .sq-link:hover, .footer .sq-link:focus {
+    color: #1F5378;
+}
+
 .wide-only {
     display: none;
 }
@@ -330,7 +340,7 @@ body {
 }
 
 .sq-partner img {
-  width:330px;
+  width:300px;
   height:auto;
 }
 
@@ -349,6 +359,11 @@ body {
 .sq-lang a,
 .sq-lang a:focus {
   color: #F8F1D9;
+}
+
+.gallery-image {
+  margin: 0 0 10px 15px;
+  float: left;
 }
 
 @media screen and (min-width: 640px) {
@@ -540,6 +555,9 @@ body {
     float: left;
     margin-left: 1em;
   }
+  .footer .sq-link {
+    color: #F8F1D9;
+  }
   .sq-navbar,
   .sq-book {
     margin-left: 0;
@@ -588,7 +606,7 @@ body {
 
 @media screen and (min-width: 1200px) {
   .sq-partner img {
-    width:330px;
+    width:300px;
     height:auto;
   }
   .sq-club-map img {
