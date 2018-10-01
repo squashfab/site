@@ -571,10 +571,6 @@ body {
     width: 100%;
     margin-top: 20px;
   }
-  .sq-club .sq-book {
-    width: 234px;
-    margin-top: 20px;
-  }
 }
 
 @media screen and (min-width: 768px) {
