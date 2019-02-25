@@ -17,6 +17,28 @@ body {
   background:none!important;
 }
 
+.sq-whatsapp-link {
+  background-color: #24d366;
+  display: inline-block;
+  width: 50px;
+  border-radius: 10px;
+}
+
+.sq-viber-link {
+  background-color: #665cac;
+  display: inline-block;
+  width: 50px;
+  border-radius: 10px;
+}
+
+.sq-whatsapp-link img,
+.sq-viber-link img {
+  display: inline-block;
+  width: auto;
+  vertical-align: top;
+  margin-left: 14px;
+}
+
 .footer {
   position: relative;
   bottom: 0;
